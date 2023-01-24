@@ -12,7 +12,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        val userRegistrationService = UserRegistrationService()
-        userRegistrationService.registerUser("aakashchavre@gmail.com","11111")
+
+        // Manual dependency injection
+        // Field injection
+        val userRepository = UserRepository()
+        val emailService = EmailService()
+
+        val userRegistrationService = UserRegistrationService(userRepository, emailService)
+        userRegistrationService.registerUser("aakashchavre@gmail.com", "11111")
     }
 }
