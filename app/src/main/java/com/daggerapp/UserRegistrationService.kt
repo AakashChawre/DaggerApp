@@ -1,7 +1,10 @@
 package com.daggerapp
 
-// Constructor injection
-class UserRegistrationService(
+import javax.inject.Inject
+
+// Constructor Injection
+// Dagger Constructor Injection
+class UserRegistrationService @Inject constructor (
     private val userRepository: UserRepository,
     private val emailService: EmailService
 ) {
